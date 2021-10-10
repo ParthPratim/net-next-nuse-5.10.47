@@ -161,7 +161,7 @@ void lib_dev_rx (struct SimDevice *dev, struct SimDevicePacket packet)
   struct net_device *device = &dev->dev;
 
   skb->protocol = eth_type_trans(skb, device);
-  skb->ip_summed = CHECKSUM_PARTIAL;
+  skb->ip_summed = CHECKSUM_COMPLETE;
 
   netif_rx(skb);
 }
